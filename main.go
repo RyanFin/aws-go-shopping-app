@@ -1,6 +1,8 @@
 package main
 
 import (
+	"RyanFin/goShoppingApplication/handlers"
+	"encoding/json"
 	"errors"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -13,8 +15,11 @@ func main() {
 
 func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	if request.HTTPMethod == "GET" {
-		var stringResponse string = "successful response sent here!!"
-		apiRes := events.APIGatewayProxyResponse{Body: stringResponse, StatusCode: 200}
+
+		lp := handlers.GetProducts()
+		j, _ := json.Marshal(lp)
+
+		apiRes := events.APIGatewayProxyResponse{Body: string(j), StatusCode: 200}
 		return apiRes, nil
 	} else {
 		err := errors.New("Method Not Allowed!")
