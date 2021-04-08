@@ -1,28 +1,25 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 
+	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type Request struct {
-	ID    float64 `json:"id"`
-	Value string  `json:"value"`
-}
-
-type Response struct {
-	Message string `json:"message"`
-	Ok      bool   `json:"ok"`
-}
-
-func Handler(request Request) (Response, error) {
-	return Response{
-		Message: fmt.Sprintf("Process Request ID: ", request.ID),
-		Ok:      true,
-	}, nil
-}
-
 func main() {
-	lambda.Start(Handler)
+	lambda.Start(HandleRequest)
+}
+
+func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	if request.HTTPMethod == "GET" {
+		var stringResponse string = "successful response sent here!!"
+		apiRes := events.APIGatewayProxyResponse{Body: stringResponse, StatusCode: 200}
+		return apiRes, nil
+	} else {
+		err := errors.New("Method Not Allowed!")
+		responseMsg := "Method not permitted"
+		apiRes := events.APIGatewayProxyResponse{Body: responseMsg, StatusCode: 502}
+		return apiRes, err
+	}
 }
