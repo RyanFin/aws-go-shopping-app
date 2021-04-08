@@ -3,18 +3,30 @@ package handlers
 import "time"
 
 type Product struct {
-	ID          int
-	Name        string
-	Description string
-	Price       float32
-	ImageURL    string
-	CreatedOn   string
-	UpdatedOn   string
-	DeletedOn   string
+	ID          int     `json:"id"`
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float32 `json:"price"`
+	ImageURL    string  `json:"image_url"`
+	CreatedOn   string  `json:"-"`
+	UpdatedOn   string  `json:"-"`
+	DeletedOn   string  `json:"-"`
 }
 
+// Get request for all products: /
 func GetProducts() []*Product {
 	return productList
+}
+
+// Get request to get product by id : ?product/<product_id>
+func GetProductByID(productID int) *Product {
+	for _, e := range productList {
+		if e.ID == productID {
+			// return the product
+			return e
+		}
+	}
+	return nil
 }
 
 var productList = []*Product{
