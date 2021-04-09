@@ -24,8 +24,13 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 
 			jsonStr := GetAllProducts()
 
+			// set CORS headers
+			headers := make(map[string]string)
+
+			headers["Access-Control-Allow-Origin"] = "*"
+
 			// push result
-			apiRes := events.APIGatewayProxyResponse{Body: string(jsonStr), StatusCode: 200}
+			apiRes := events.APIGatewayProxyResponse{Body: string(jsonStr), StatusCode: 200, Headers: headers}
 			return apiRes, nil
 		} else {
 			// retrieve product ID from the URL params map: id -> 1

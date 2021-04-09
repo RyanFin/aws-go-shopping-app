@@ -1,15 +1,25 @@
 # aws-go-shopping-app
 
+## Golang backend
+- Enabling CORS for 'Access-Control-Allow-Origin' header , set to '*': https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
+
 ## Getting started with the AWS SDK
 -   https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/setting-up.html
 - AWS Lambda function in Go: https://docs.aws.amazon.com/lambda/latest/dg/golang-handler.html
 - Retrieve AWS Invoke URL: https://www.youtube.com/watch?v=pfoKFaHisbY&ab_channel=Postman
 
 ## React 
+- Generate React app: $ npx create-react-app go-shopping-app-react 
 - Bootstrap CDN: https://www.w3schools.com/bootstrap/bootstrap_get_started.asp
 - React Bootstrap: https://www.pluralsight.com/guides/how-to-use-bootstrap-components-with-reactjs
     - Navbar: https://react-bootstrap.github.io/components/navbar/
     - Navbar: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
+- React Component Generation 
+    - Uppercase naming convention for naming components
+    - Using the *ES7 React/Redux/GraphQL/React-Native snippets* VS Code extension. Run: rafce for component boilerplate
+- VS Code autoindent: https://www.codegrepper.com/code-examples/whatever/how+to+auto+indent+in+visual+studio+code
+    - On Mac : Shift + Option + F
+- Class vs functional components: https://stackoverflow.com/questions/56676457/function-app-vs-class-app-extends-component-in-the-app-js-file 
 
 # Getting Started with Create React App
 
