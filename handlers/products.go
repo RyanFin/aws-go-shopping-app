@@ -18,7 +18,16 @@ func GetProducts() []*Product {
 	return productList
 }
 
-// Get request to get product by id : ?product/<product_id>
+func AddProduct(p *Product) {
+	productList = append(productList, p)
+}
+
+func GetNextProductID() int {
+	prodlist := productList[len(productList)-1]
+	return prodlist.ID + 1
+}
+
+// Get request to get product by id : ?id=<Product.ID>
 func GetProductByID(productID int) *Product {
 	for _, e := range productList {
 		if e.ID == productID {

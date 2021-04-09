@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"net/http"
 	"strconv"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -16,19 +17,12 @@ func main() {
 }
 
 func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	if request.HTTPMethod == "GET" {
+	if request.HTTPMethod == http.MethodGet {
 
 		// If there are no path parameters load all products
 		if len(request.QueryStringParameters) == 0 {
 
-			// Get all products
-			lp := handlers.GetProducts()
-
-			// Marshal data into JSON format
-			jsonStr, err := json.Marshal(lp)
-			if err != nil {
-				fmt.Errorf("Unable to marshal JSON - %v", err.Error())
-			}
+			jsonStr := GetAllProducts()
 
 			// push result
 			apiRes := events.APIGatewayProxyResponse{Body: string(jsonStr), StatusCode: 200}
@@ -52,10 +46,45 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 			return apiRes, nil
 		}
 
+	} else if request.HTTPMethod == http.MethodPost {
+		newProdJsonStr := request.Body
+
+		var newProduct *handlers.Product
+
+		err := json.Unmarshal([]byte(newProdJsonStr), &newProduct)
+		if err != nil {
+			fmt.Errorf("Unable to Unmarshal product data into Product struct - %v", err.Error())
+		}
+
+		// Update the product id of the new item
+		newProduct.ID = handlers.GetNextProductID()
+
+		handlers.AddProduct(newProduct)
+		s := strconv.Itoa(newProduct.ID)
+		if err != nil {
+			fmt.Errorf("Error converting int to string - %v", err.Error())
+		}
+
+		var resMsg string = "added product: " + s
+		apiRes := events.APIGatewayProxyResponse{Body: resMsg, StatusCode: 200}
+		return apiRes, nil
+
 	} else {
 		err := errors.New("Method Not Allowed!")
 		responseMsg := "Method not permitted"
 		apiRes := events.APIGatewayProxyResponse{Body: responseMsg, StatusCode: 502}
 		return apiRes, err
 	}
+}
+
+func GetAllProducts() string {
+	// Get all products
+	lp := handlers.GetProducts()
+
+	// Marshal data into JSON format
+	jsonStr, err := json.Marshal(lp)
+	if err != nil {
+		fmt.Errorf("Unable to marshal JSON - %v", err.Error())
+	}
+	return string(jsonStr)
 }
