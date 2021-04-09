@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header>
         <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
-            <Navbar.Brand href="#home">Go Shopping App</Navbar.Brand>
+            <Navbar.Brand href="/">Go Shopping App</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -19,7 +19,7 @@ const Header = () => {
         <Row>
             <Col>
             <h1 className="text-center">Welcome to the Go Shopping Application</h1>
-            <h2 className="text-center">Take a look at our skating products</h2>
+            <h2 className="text-center">Browse our range of skating products!</h2>
             <Button variant="outline-primary">Primary</Button>{' '}
             </Col>
         </Row>
