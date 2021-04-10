@@ -20,7 +20,7 @@ const Header = () => {
             <Col>
             <h1 className="text-center">Welcome to the Go Shopping Application</h1>
             <h2 className="text-center">Browse our range of skating products!</h2>
-            <Button variant="outline-primary">Primary</Button>{' '}
+            {/* <Button variant="outline-primary">Primary</Button>{' '} */}
             </Col>
         </Row>
         </Container>

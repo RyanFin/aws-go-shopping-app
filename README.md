@@ -1,6 +1,6 @@
 # aws-go-shopping-app
 
-## Golang backend
+## Golang (Back-end)
 - Enabling CORS for 'Access-Control-Allow-Origin' header , set to '*': https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
 
 ## Getting started with the AWS SDK
@@ -8,7 +8,7 @@
 - AWS Lambda function in Go: https://docs.aws.amazon.com/lambda/latest/dg/golang-handler.html
 - Retrieve AWS Invoke URL: https://www.youtube.com/watch?v=pfoKFaHisbY&ab_channel=Postman
 
-## React 
+## React (Front-end)
 - Generate React app: $ npx create-react-app go-shopping-app-react 
 - Bootstrap CDN: https://www.w3schools.com/bootstrap/bootstrap_get_started.asp
 - React Bootstrap: https://www.pluralsight.com/guides/how-to-use-bootstrap-components-with-reactjs
