@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Figure, FigureImage, FigureCaption, Jumbotron } from 'react-bootstrap'
+import { Container, Col, Row, Image, Badge, Card,Jumbotron } from 'react-bootstrap'
 
 const Product = () => {
 
@@ -21,11 +21,11 @@ const Product = () => {
     return (
         <div>
             <Jumbotron>
-            <h2>Browse our range of skating products!</h2>
-            <h4>Total number of products: {products.length}</h4>
+                <h2>Browse our range of skating products!</h2>
+                <Badge variant="primary">Total number of products: {products.length}</Badge>
 
                 {products.map((p, index) => {
-                    return <Card product={p} />
+                    return <Tri product={p} />
                 })}
 
             </Jumbotron>
@@ -33,21 +33,43 @@ const Product = () => {
     )
 }
 
-const Card = ({ product }) => {
+const Tri = ({ product }) => {
     return (
-        <Figure>
-            <Figure.Image
-                width={400}
-                height={400}
-                alt={product.name}
-                src={product.image_url}
-            />
-            <Figure.Caption>
-            {product.name} || £{product.price}
-            </Figure.Caption>
-            <p>{product.description}</p>
-        </Figure>
-        
+        <Container>
+            <Row>
+                <Col sm={8} >
+                    <h5>{product.name}</h5>
+                </Col>
+            </Row>
+            <Row>
+                <Col sm={4}>
+                    <Card className="text-right" border="primary">
+                        <Card.Header># {product.id}</Card.Header>
+                        <Card.Body>
+                        <Image
+                                width={"280"}
+                                height={"300"}
+                                alt={product.name}
+                                src={product.image_url}
+                            />
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Badge variant="info">£{product.price}</Badge>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <u>Description</u>
+                    <p style={{ textAlign: "justify" }}>{product.description}</p>
+                </Col>
+            </Row>
+
+        </Container>
+
     );
 }
 
