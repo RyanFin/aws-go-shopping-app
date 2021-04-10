@@ -23,6 +23,7 @@
 - Class vs functional components: https://stackoverflow.com/questions/56676457/function-app-vs-class-app-extends-component-in-the-app-js-file 
 - Fetching data from Web API: https://www.youtube.com/watch?v=Ajf6U2FQVzM&ab_channel=LearningProgramming
 - CSS Styling in React: https://www.w3schools.com/react/react_css.asp
+- Routing between pages: $ npm i react-router-dom
 
 # Getting Started with Create React App
 
