@@ -6,26 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  // const fetchData = async () => {
-  //   const res = await fetch('https://6j4fjl5ku2.execute-api.us-east-1.amazonaws.com/Dev/GoShoppingApplicationFunction')
-  //   const json = await res.json()
-  //   return json.result
-  // }
-
-  // const ProductList = props => {
-  //   const [products, setProducts] = useState([])
-
-  //   useEffect(() => {
-  //     fetchData().then(products => {
-  //       setProducts(products)
-  //     })
-  //   }, [])
-
     return (
-      <div className="container">
+      <>
         <Header></Header>
+        <div className="container">
         <Product></Product>
-      </div>
+        </div>
+      </>
     );
   }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Carousel } from 'react-bootstrap'
+import { Container, Col, Row, Image, Badge, Card,Jumbotron } from 'react-bootstrap'
 
 const Product = () => {
 
@@ -10,6 +10,7 @@ const Product = () => {
             .then(res => res.json())
             .then(res => {
                 setProducts(res);
+                // console.log(res);
             })
             .catch(e => {
                 console.log(e);
@@ -19,44 +20,57 @@ const Product = () => {
 
     return (
         <div>
-            <Carousel>
-          <Carousel.Item interval={1000}>
-            <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=First slide&bg=373940"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item interval={500}>
-            <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=282c34"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Third slide&bg=20232a"
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-            Products: {products.length}
+            <Jumbotron>
+                <h2>Browse our range of skating products!</h2>
+                <Badge variant="primary">Total number of products: {products.length}</Badge>
+
+                {products.map((p, index) => {
+                    return <Tri product={p} />
+                })}
+
+            </Jumbotron>
         </div>
     )
+}
+
+const Tri = ({ product }) => {
+    return (
+        <Container>
+            <Row>
+                <Col sm={8} >
+                    <h5>{product.name}</h5>
+                </Col>
+            </Row>
+            <Row>
+                <Col sm={4}>
+                    <Card className="text-right" border="primary">
+                        <Card.Header># {product.id}</Card.Header>
+                        <Card.Body>
+                        <Image
+                                width={"280"}
+                                height={"300"}
+                                alt={product.name}
+                                src={product.image_url}
+                            />
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Badge variant="info">£{product.price}</Badge>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <u>Description</u>
+                    <p style={{ textAlign: "justify" }}>{product.description}</p>
+                </Col>
+            </Row>
+
+        </Container>
+
+    );
 }
 
 export default Product

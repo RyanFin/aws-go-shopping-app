@@ -1,6 +1,7 @@
 # aws-go-shopping-app
 
-## Golang backend
+## Golang (Back-end)
+- GO AWS APIGatewayProxyRequest Documentation: https://pkg.go.dev/github.com/aws/aws-lambda-go/events#APIGatewayProxyRequest.Headers
 - Enabling CORS for 'Access-Control-Allow-Origin' header , set to '*': https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
 
 ## Getting started with the AWS SDK
@@ -8,7 +9,7 @@
 - AWS Lambda function in Go: https://docs.aws.amazon.com/lambda/latest/dg/golang-handler.html
 - Retrieve AWS Invoke URL: https://www.youtube.com/watch?v=pfoKFaHisbY&ab_channel=Postman
 
-## React 
+## React (Front-end)
 - Generate React app: $ npx create-react-app go-shopping-app-react 
 - Bootstrap CDN: https://www.w3schools.com/bootstrap/bootstrap_get_started.asp
 - React Bootstrap: https://www.pluralsight.com/guides/how-to-use-bootstrap-components-with-reactjs
@@ -20,6 +21,8 @@
 - VS Code autoindent: https://www.codegrepper.com/code-examples/whatever/how+to+auto+indent+in+visual+studio+code
     - On Mac : Shift + Option + F
 - Class vs functional components: https://stackoverflow.com/questions/56676457/function-app-vs-class-app-extends-component-in-the-app-js-file 
+- Fetching data from Web API: https://www.youtube.com/watch?v=Ajf6U2FQVzM&ab_channel=LearningProgramming
+- CSS Styling in React: https://www.w3schools.com/react/react_css.asp
 
 # Getting Started with Create React App
 
