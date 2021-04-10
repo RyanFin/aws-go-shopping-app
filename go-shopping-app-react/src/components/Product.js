@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Carousel, Card, Jumbotron } from 'react-bootstrap'
+import { Figure, FigureImage, FigureCaption, Jumbotron } from 'react-bootstrap'
 
 const Product = () => {
 
@@ -21,12 +21,11 @@ const Product = () => {
     return (
         <div>
             <Jumbotron>
-                Total number of products: {products.length}
-
-                <p>{products[0].name}</p>
+            <h2>Browse our range of skating products!</h2>
+            <h4>Total number of products: {products.length}</h4>
 
                 {products.map((p, index) => {
-                    return <Ci product={p}/>
+                    return <Card product={p} />
                 })}
 
             </Jumbotron>
@@ -34,17 +33,21 @@ const Product = () => {
     )
 }
 
-const Ci = ({ product }) => {
+const Card = ({ product }) => {
     return (
-        <div>
-            <img
-                className="d-block w-100"
-                src={product.image_url}
+        <Figure>
+            <Figure.Image
+                width={400}
+                height={400}
                 alt={product.name}
+                src={product.image_url}
             />
-            <p>{product.name}</p>
+            <Figure.Caption>
+            {product.name} || £{product.price}
+            </Figure.Caption>
             <p>{product.description}</p>
-        </div>
+        </Figure>
+        
     );
 }
 

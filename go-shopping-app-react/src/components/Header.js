@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar,Nav,NavDropdown,Form,FormControl,Button,Container,Row,Col } from 'react-bootstrap'
+import { Navbar,Nav,Button,Container,Row,Col } from 'react-bootstrap'
 
 const Header = () => {
     return (
@@ -18,8 +18,7 @@ const Header = () => {
         <Container>
         <Row>
             <Col>
-            <h1 className="text-center">Welcome to the Go Shopping Application</h1>
-            <h2 className="text-center">Browse our range of skating products!</h2>
+            <h1 className="text-center" style={{marginBottom: "2.5%", marginTop: "1.5%"}}>Welcome to the Go Shopping Application</h1>
             {/* <Button variant="outline-primary">Primary</Button>{' '} */}
             </Col>
         </Row>
