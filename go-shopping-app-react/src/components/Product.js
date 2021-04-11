@@ -37,31 +37,29 @@ const Tri = ({ product }) => {
     return (
         <Container>
             <Row>
-                <Col sm={8} >
-                    <h5>{product.name}</h5>
-                </Col>
-            </Row>
-            <Row>
-                <Col sm={4}>
-                    <Card className="text-right" border="primary">
-                        <Card.Header># {product.id}</Card.Header>
-                        <Card.Body>
-                        <Image
-                                width={"280"}
-                                height={"300"}
-                                alt={product.name}
-                                src={product.image_url}
-                            />
-                        </Card.Body>
-                    </Card>
+                <Col>
+                <p style={{marginBottom: '30px'}}></p>
+                    <h5>{product.id}. - {product.name}</h5>
+                    <p style={{marginBottom: '10px'}}></p>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Badge variant="info">£{product.price}</Badge>
+                    <Card className="text-right" border="primary" style={{ width: '70%', margin: '0 auto', float: 'none', marginBottom: '10px', marginTop: '8px'}}>
+                        <Card.Header># {product.id}</Card.Header>
+                        <Card.Body>
+                            <Card.Img
+                                variant="top"
+                                alt={product.name}
+                                src={product.image_url}
+                            />
+                        </Card.Body>
+                        <Card.Footer className="text-center">
+                            <medium className="text-muted"><i>Price (GBP):</i> </medium>
+                            <Badge variant="info">£{product.price}</Badge>
+                            </Card.Footer>
+                    </Card>
                 </Col>
-            </Row>
-            <Row>
                 <Col>
                     <u>Description</u>
                     <p style={{ textAlign: "justify" }}>{product.description}</p>
