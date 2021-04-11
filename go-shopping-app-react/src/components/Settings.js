@@ -38,19 +38,38 @@ const Settings = props => {
                 <h2>Settings</h2>
                 <h4>Add Product</h4>
 
-                <form ref={form} onSubmit={submit}>
-                    <label for="name">ID</label>
-                    <input type="number" name="id" />
-                    <label for="name">Name</label>
-                    <input type="text" name="name" />
-                    <label for="name">Description</label>
-                    <input type="text" name="description" />
-                    <label for="name">price</label>
-                    <input type="text" name="price" />
-                    <label for="name">Image URL </label>
-                    <input type="text" name="image_url" />
-                    <input type="submit" name="Submit" />
-                </form>
+                <Form ref={form} onSubmit={submit}>
+                    {/* <Form.Row> */}
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Product ID</Form.Label>
+                        <Form.Control type="number" name="id"  onChange={e => setProduct({ ...product, id: e.target.value })} placeholder="Enter Product ID..." />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Product Name</Form.Label>
+                        <Form.Control type="text" name="name"  onChange={e => setProduct({ ...product, name: e.target.value })} placeholder="Enter Product Name..." />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Product Description</Form.Label>
+                        <Form.Control type="text" name="description" onChange={e => setProduct({ ...product, description: e.target.value })} placeholder="Enter Product Description..." />
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Product Price</Form.Label>
+                        <InputGroup className="mb-2">
+                            <InputGroup.Prepend>
+                                <InputGroup.Text>£</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <Form.Control type="text" name="price"  onChange={e => setProduct({ ...product, price: e.target.value })} placeholder="Enter Product Price..." />
+                        </InputGroup>
+                    </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Product Image</Form.Label>
+                        <Form.Control type="text" name="image_url" onChange={e => setProduct({ ...product, image_url: e.target.value })} placeholder="Enter Image URL..." />
+                    </Form.Group>
+                    {/* </Form.Row> */}
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
 
             </Jumbotron>
         </>
