@@ -17,6 +17,7 @@ func main() {
 }
 
 func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+
 	if request.HTTPMethod == http.MethodGet {
 
 		// If there are no path parameters load all products
@@ -46,8 +47,14 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 			if err != nil {
 				fmt.Errorf("Unable to Marshal Product data - %v", err.Error())
 			}
+
+			// set CORS headers
+			headers := make(map[string]string)
+
+			headers["Access-Control-Allow-Origin"] = "*"
+
 			// push result
-			apiRes := events.APIGatewayProxyResponse{Body: string(prodStr), StatusCode: 200}
+			apiRes := events.APIGatewayProxyResponse{Body: string(prodStr), StatusCode: 200, Headers: headers}
 			return apiRes, nil
 		}
 
@@ -71,7 +78,12 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 		}
 
 		var resMsg string = "added product: " + s
-		apiRes := events.APIGatewayProxyResponse{Body: resMsg, StatusCode: 200}
+
+		// set CORS headers
+		headers := make(map[string]string)
+
+		headers["Access-Control-Allow-Origin"] = "*"
+		apiRes := events.APIGatewayProxyResponse{Body: resMsg, StatusCode: 200, Headers: headers}
 		return apiRes, nil
 
 	} else {

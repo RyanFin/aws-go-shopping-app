@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Col, Row, Image, Badge, Card,Jumbotron } from 'react-bootstrap'
+import { Container, Col, Row, Image, Badge, Card, Jumbotron } from 'react-bootstrap'
 
 const Product = () => {
 
@@ -25,7 +25,7 @@ const Product = () => {
                 <Badge variant="primary">Total number of products: {products.length}</Badge>
 
                 {products.map((p, index) => {
-                    return <Tri product={p} />
+                    return <Tri key={index} product={p} />
                 })}
 
             </Jumbotron>
@@ -67,9 +67,7 @@ const Tri = ({ product }) => {
                     <p style={{ textAlign: "justify" }}>{product.description}</p>
                 </Col>
             </Row>
-
         </Container>
-
     );
 }
 
