@@ -41,10 +41,6 @@ const Settings = props => {
                 <Form ref={form} onSubmit={submit}>
                     {/* <Form.Row> */}
                     <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Product ID</Form.Label>
-                        <Form.Control type="number" name="id"  onChange={e => setProduct({ ...product, id: e.target.value })} placeholder="Enter Product ID..." />
-                    </Form.Group>
-                    <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control type="text" name="name"  onChange={e => setProduct({ ...product, name: e.target.value })} placeholder="Enter Product Name..." />
                     </Form.Group>
