@@ -24,6 +24,10 @@
 - Fetching data from Web API: https://www.youtube.com/watch?v=Ajf6U2FQVzM&ab_channel=LearningProgramming
 - CSS Styling in React: https://www.w3schools.com/react/react_css.asp
 - Routing between pages: $ npm i react-router-dom
+- React POST request: https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
+- React Functional Components POST from Form with React Hooks and fetch: https://mattboldt.com/2020/05/02/formdata-with-react-hooks-and-fetch/
+- React Hook Form: https://react-hook-form.com/
+- **Convert HTML form to JSON**: https://www.learnwithjason.dev/blog/get-form-values-as-json
 
 # Getting Started with Create React App
 
